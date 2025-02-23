@@ -1,0 +1,61 @@
+
+@font-face {
+  font-family: proxima_nova; 
+  src: url('../proxima-nova/5738875/ad4a2691-471a-4c43-b88f-0d144d680661.woff2') format('woff2'),url('../proxima-nova/5738875/1da53474-ed78-41a6-872b-7397556eceee.woff') format('woff');
+  font-weight: 100;
+  font-display: block;
+}
+@font-face {
+  font-family: proxima_nova; 
+  src: url('../proxima-nova/5596764/122f8a1b-fa6b-4246-8d37-911edb4ac556.woff2')
+      format('woff2'),
+    url('../proxima-nova/5596764/0f51d8b8-bda2-4557-9b56-0a4e94ab63d9.woff')
+      format('woff');
+  font-weight: 200 300;
+  font-display: block;
+}
+@font-face {
+  font-family: proxima_nova;
+  src: url('../proxima-nova/5596735/b38b8bd9-d96f-4bf9-add1-adbd2b08b802.woff2')
+      format('woff2'),
+    url('../proxima-nova/5596735/52ed7b2d-8a31-4b18-a1d5-8685608b0889.woff')
+      format('woff');
+  font-weight: 400 500;
+  font-display: block;
+}
+@font-face {
+  font-family: proxima_nova; 
+  src: url('../proxima-nova/5738932/c7dcb253-8dca-459b-aaa9-afef9131ef22.woff2')
+      format('woff2'),
+    url('../proxima-nova/5738932/390be235-bf11-42ee-8ba1-2dd10ca6a4ac.woff')
+      format('woff');
+  font-weight: 600;
+  font-display: block;
+}
+@font-face {
+  font-family: proxima_nova;
+  src: url('../proxima-nova/5596920/cc85d073-4dcf-4ecd-9804-40c34e631e2b.woff2')
+      format('woff2'),
+    url('../proxima-nova/5596920/332136cf-33d0-43fb-97ee-49c7742489ff.woff')
+      format('woff');
+  font-weight: 700;
+  font-display: block;
+}
+@font-face {
+  font-family: proxima_nova; 
+  src: url('../proxima-nova/5596977/c8e0146f-ebf2-4e86-bd3d-047c9a5e5dac.woff2')
+      format('woff2'),
+    url('../proxima-nova/5596977/e7972ec4-f161-406c-be4c-f32e884989e7.woff')
+      format('woff');
+  font-weight: 800;
+  font-display: block;
+}
+@font-face {
+  font-family: proxima_nova; 
+  src: url('../proxima-nova/5598080/1c15111d-7d2b-49d6-b3f3-842fa8a515cc.woff2')
+      format('woff2'),
+    url('../proxima-nova/5598080/43df9509-15a0-4fe5-aabc-55c554eb878c.woff')
+      format('woff');
+  font-weight: 900;
+  font-display: block;
+}

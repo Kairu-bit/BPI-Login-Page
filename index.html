@@ -1,0 +1,414 @@
+    <!DOCTYPE html
+      PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" class="" 
+    >
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="robots" content="noindex, nofollow">
+                <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <title>BPI - Bank of the Philippine Islands</title>
+        <link rel="icon" type="image/png" href="/auth/resources/ws5g9/login/bpi-theme/img/favicon.png" />
+        <link rel="mask-icon" type="image/png" href="/auth/resources/ws5g9/login/bpi-theme/img/favicon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" type="image/png" href="/auth/resources/ws5g9/login/bpi-theme/img/favicon.png" />
+        <link
+          rel="apple-touch-icon-precomposed"
+          sizes="57x57"
+          type="image/png"
+          href="/auth/resources/ws5g9/login/bpi-theme/img/favicon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          type="image/png"
+          href="/auth/resources/ws5g9/login/bpi-theme/img/favicon.png"
+        />
+        <link rel="apple-touch-icon" sizes="180x180" type="image/png" href="/auth/resources/ws5g9/login/bpi-theme/img/favicon.png" />
+                <link href="/auth/resources/ws5g9/login/bpi-theme/css/fonts/proxima-nova/_index.css" rel="stylesheet" />
+                <link href="/auth/resources/ws5g9/login/bpi-theme/lib/backbase-theme/dist/backbase-theme.css" rel="stylesheet" />
+                <link href="/auth/resources/ws5g9/login/bpi-theme/css/custom-login.css" rel="stylesheet" />
+                <script src="/auth/resources/ws5g9/login/bpi-theme/scripts/login.js" type="text/javascript"></script>
+                <script src="/auth/resources/ws5g9/login/bpi-theme/scripts/loginValidation.js" type="text/javascript"></script>
+        <script src="//cdn.evgnet.com/beacon/bankphilippineislands/prod/scripts/evergage.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/appd/adrum-javascript.js"></script>
+    </head>
+
+    <body
+      onload="getKillSwitchData(); errorHandlerModal(``)">
+            <div class="ui-bpi-toaster shadow-down-xl" id="logout-toaster">
+              <div class="ui-bpi-toaster__icon p-1">
+                <div class="icon-warning"></div>
+              </div>
+              <div class="ui-bpi-toaster__body caption-regular">
+                This session has expired due to inactivity or you logged in to another device.
+              </div>
+              <div class="cursor-pointer me-2">
+                <div class="icon-close" onclick="removeToaster()"></div>
+              </div>
+            </div>
+            <div class="main-container">
+              <div class="ui-bpi-login d-flex">
+                <div class="ui-bpi-login__form" id="login-form">
+                  <div>
+                    <div class="top-bar pb-3">
+                      <a onclick="reloadLogin()" class="d-inline-flex">
+                        <div class="top-bar-logo"></div>
+                      </a>
+                      <div class="d-block d-md-none hamburger"  id="hamburgerMenu" onclick="openMenu()">
+                      </div>
+                    </div>
+
+    <h2 class="ui-bpi-login__form-title mt-3 mb-4 d-none d-md-block">
+        Welcome!
+    </h2>
+
+    <h3 class="ui-bpi-login__form-title mt-3 mb-4 d-md-none d-block">
+        Welcome!
+    </h3>
+
+    <form id="kc-form-login" onsubmit="return onSubmit();" action="https://online.bpi.com.ph/auth/realms/BPI/login-actions/authenticate?session_code=7Wbm4RaTk8JeBR6SPrV7a9J6_dN4buju63SKQQCmuQE&amp;execution=8394d009-36ed-475a-ab83-7f59e6bec913&amp;client_id=bb-web-client&amp;tab_id=N0dcj12r0iA" method="post">
+        <div class="d-flex flex-column mb-3">
+            <div class="ui-bpi-input-control" id="userinput">
+                <div class="ui-bpi-input-control-field">
+                    <input   class="ui-bpi-control-input"  
+                     id="username"
+                    name="username"
+                    value=""
+                    type="text"
+                    onkeypress="return validateUserName(event)"
+                    onpaste="return validateUserName(event)"
+                    maxlength="12"
+                    autocomplete="off"
+                    placeholder="Username"
+                    aria-invalid="" >
+                    <label class="ui-bpi-input-control-label">Username</label> 
+                </div> 
+                <div class="ui-bpi-input-icon icon-small-close cursor-pointer" id="iconToggler" >
+                </div>
+            </div>
+         </div>
+
+
+        <div class="d-flex flex-column mb-1">
+            <div class="ui-bpi-input-control" id="passwordinput">
+                <div class="ui-bpi-input-control-field">
+                    <input 
+                    class="ui-bpi-control-input" 
+                    id="password"
+                    name="password"
+                    type="password"
+                    maxlength="20"
+                    value=""
+                    onkeypress="return validatePassword(event)"
+                    onpaste="return false;"
+                    autocomplete="off"
+                    placeholder="Password"
+                    aria-invalid="">
+                    <label class="ui-bpi-input-control-label">Password</label> 
+                </div> 
+                <div class="icon-eye-close cursor-pointer" id="toggler" onclick="showHidePassword()">
+                </div>
+                    <img src="/auth/resources/ws5g9/login/bpi-theme/img/eye-open.svg" style="display: none;" />
+                    <img src="/auth/resources/ws5g9/login/bpi-theme/img/error-eye-close.svg" style="display: none;" />
+                    <img src="/auth/resources/ws5g9/login/bpi-theme/img/error-eye-open.svg" style="display: none;" />
+        </div>
+    </div>
+
+        <div class="ui-bpi-login-button">
+            <button
+                name="login"
+                id="loginBtn"
+                type="submit"
+                class="ui-bpi-primary-button disabled">
+                Log in
+            </button>
+        </div>
+    </form>
+
+    <div class="text-center" id="forgot-links">
+        <span class="text-center my-3" style="color: #63747b;">
+            Forgot
+            <a class="body-link" onclick="openModal()" id="forgot-username">username</a>
+            <span id="or">or</span>
+            <a onclick="navigateToForgotPassword()" class="body-link" id="forgot-password">
+                password
+            </a>
+        </span>
+    </div>
+    <div class="ui-bpi-login-form-orText text-center my-4">
+      OR
+    </div>
+    <button class="mb-32px ui-bpi-button secondary" onclick="registerNow()" type="submit">
+    <span class="register-now">Register now</span>
+    </button>
+ <div id="genericErrorModal" class="modal">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <h3 class="mt-3">
+         Try again later
+       </h3>
+       <span>
+         We are unable to process your request at this time.
+       </span>
+       <div class="modal-footer p-0 mt-32px">
+         <button
+           type="submit"
+           onclick="reloadLogin()"
+           class="ui-bpi-primary-button">
+           Okay
+         </button>
+       </div>
+     </div>
+   </div>
+ </div>                  </div>
+<div>
+  <div class="ui-bpi-login__form__inquiryMenu py-3 cursor-pointer" onclick="showInquiry()">
+    <h6 class="mb-0">
+      Show inquiries and other services
+    </h6>
+    <div class="icon-chevron-right"></div>
+  </div>
+  <div class="ui-bpi-login__form-notice mt-3">
+    Deposits are insured by PDIC up to Php 500,000 per depositor.
+  </div>
+  <div class="ui-bpi-login__form-notice mt-3">
+    <span>
+      For inquiries and comments please
+    </span> <a class="tiny-link" onclick="navigateToLink('CONTACT_US')">
+      send us a message
+    </a> <span>
+      or call our 24-hour BPI Contact Center at (+632) 889-10000.
+    </span>
+  </div>
+  <div class="ui-bpi-login__form-notice mt-3">
+    BPI is a proud member of BancNet. BPI is regulated by the Bangko Sentral ng Pilipinas.
+    <a onclick="openNoticePopup()" class="tiny-link">https://www.bsp.gov.ph</a>
+  </div>
+  <div class="ui-bpi-login__form-notice mt-3">
+    Copyright © 2023 BPI. All rights reserved.
+  </div>
+</div>                </div>
+    <div class="ui-bpi-login-footer-responsive">
+      <div class="ui-bpi-login-footer-links d-flex align-items-center">
+        <span class="me-4" onclick="navigateToLink('SERVICE_AGREEMENT')">
+          Service Agreement
+        </span>
+        <span onclick="navigateToLink('SECURITY_FEATURES')">
+          Learn About Security
+        </span>
+      </div>
+      <div class="ui-bpi-login-footer-logos">
+        <div id="responsive-tooltip" class="me-4" onclick="showTooltipresponsive()">
+          <span id="responsive-tooltipText" class="d-flex justify-content-between flex-column">
+            <div class="tooltip-content">
+              Once you leave BPI app, You&#39;ll be covered by the policy and security measures of the site you are visiting.
+            </div>
+            <span class="body-link" onclick="navigateToLink('OPEN_SITE_TOOLTIP')">
+              Open site
+            </span>
+          </span>
+          <span class="d-block global-secure-logo"></span>
+        </div>
+        <div class="text-center">
+          <div class="tiny-regular">
+            Proud member of
+          </div>
+          <div class="bancnet-logo"></div>
+        </div>
+      </div>
+    </div>
+ <div class="ui-bpi-login__inquirymenus invisible" id="inquiry-menu">
+   <div class="d-flex mb-4 justify-content-end cursor-pointer" onclick="hideInquiry()">
+     <div class="icon-close"></div>
+   </div>
+   <div class="mb-40px">
+     <h5 class="mb-4">
+       Inquiry
+     </h5>
+     <div class="ui-bpi-login__inquirymenus-externallink" onclick="navigateToRemittance()">
+       <div class="icon-remittance me-3"></div>
+       <span>
+         Remittance status
+       </span>
+     </div>
+   </div>
+   <div class="mb-40px">
+     <h5 class="mb-4">
+       Other services
+     </h5>
+     <div class="ui-bpi-login__inquirymenus-externallink mb-3" onclick="navigateToLink('BPI_TO_CASH')">
+       <div class="icon-frame me-3"></div>
+       <span>
+         BPI to Cash
+       </span>
+     </div>
+     <div class="ui-bpi-login__inquirymenus-externallink" onclick="navigateToLink('AUTO_DEBIT_ARRANGEMENT')">
+       <div class="icon-rotate-cw me-3"></div>
+       <span>
+         Auto debit arrangement
+       </span>
+     </div>
+   </div>
+   <div>
+     <h5 class="mb-4">
+       Security
+     </h5>
+     <div class="ui-bpi-login__inquirymenus-externallink" onclick="openLockAccess()">
+       <div class="icon-lock-account me-3"></div>
+       <span>
+         Lock my access
+       </span>
+     </div>
+   </div>
+ </div>       <div class="ui-bpi-login__content">
+         <div class="ui-bpi-login-main-content">
+           <div class="top-bar-menu d-flex flex-row justify-content-end">
+             <span class="body-semi mr-32px" onclick="navigateToLink('HOME')">
+               Home
+             </span>
+             <span class="body-semi mr-32px" onclick="navigateToLink('CONTACT_US')">
+               Contact Us
+             </span>
+             <span class="body-semi " onclick="navigateToLink('PRIVACY_POLICY')">
+               Privacy Policy
+             </span>
+           </div>
+          <div class="ui-bpi-login-image-container">
+           <div id="image-login"></div>
+           </div>
+         </div>
+         <div class="ui-bpi-login-footer">
+           <!-- footer for web view -->
+           <div class="ui-bpi-login-footer-links d-flex align-items-center">
+             <span class="mr-32px" onclick="navigateToLink('SERVICE_AGREEMENT')">
+               Service Agreement
+             </span>
+             <span onclick="navigateToLink('SECURITY_FEATURES')">
+               Learn About Security
+             </span>
+           </div>
+           <div class="ui-bpi-login-footer-logos">
+             <div id="tooltip" class="mr-32px">
+               <span id="tooltipText" class="d-flex justify-content-between flex-column">
+                 <div class="tooltip-content-web">
+                   Once you leave BPI app, You&#39;ll be covered by the policy and security measures of the site you are visiting.
+                 </div>
+                 <span class="body-link" onclick="navigateToLink('OPEN_SITE_TOOLTIP')">
+                   Open site
+                 </span>
+               </span>
+               <span class="d-block global-secure-logo"></span>
+             </div>
+             <div class="text-center">
+               <div class="tiny-regular">
+                 Proud member of
+               </div>
+               <div class="bancnet-logo"></div>
+             </div>
+           </div>
+         </div>
+       </div>
+              </div>
+   <div id="forgotUsernameModal" class="modal" onclick="closeModal()">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <h3 class="mt-3">
+           Username retrieval
+         </h3>
+         <div class="modal-body-username">
+           <span>
+             Your username can only be retrieved through the BPI app. Make sure you open the app on your phone with your registered mobile number for a faster experience.
+           </span>
+           <div class="username-retrival text-center mt-4">
+           </div>
+         </div>
+         <div class="modal-footer p-0 mt-32px">
+           <button
+             type="submit"
+             class="ui-bpi-primary-button">
+             Back to login
+           </button>
+         </div>
+       </div>
+     </div>
+   </div>   <div id="lockMyAccessModal" class="modal" onclick="closeModal()">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <h3 class="mt-3">
+           Are you sure you want to lock your BPI app access?
+         </h3>
+         <span>
+           This will permanently block all your logins and online banking transactions.
+         </span>
+         <div class="modal-footer p-0 mt-32px">
+           <button
+             type="submit"
+             onclick="navigateToLockMyAccess()"
+             class="ui-bpi-primary-button">
+             Yes, lock now
+           </button>
+           <button
+             type="submit"
+             class="mt-2 ui-bpi-button secondary">
+             No
+           </button>
+         </div>
+       </div>
+     </div>
+   </div>  <div id="noticeModal" class="modal" onclick="closeModal()">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <span class="mt-3">
+          Once you leave BPI app, you&#39;ll be covered by the policy and security measures of the site you are visiting.
+        </span>
+        <div class="modal-footer p-0 mt-32px">
+          <button
+            type="submit"
+            onclick="navigateToLink('BSP_GOV')"
+            class="ui-bpi-primary-button">
+            Open site
+          </button>
+          <button
+            type="submit"
+            class="mt-2 ui-bpi-button secondary">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div> <div id="topBarModal" class="modal align-items-start" onclick="closeMenu()">
+   <div class="ui-bpi-topbar" id="topBarMenu">
+     <div class="top-bar-menu p-3 ">
+        <a onclick="reloadLogin()">
+         <div class="top-bar-logo"></div>
+       </a>
+       <div class="d-block cursor-pointer" onclick="closeMenu()">
+         <div class="icon-close"></div>
+       </div>
+     </div>
+     <div class="menu-items">
+       <div class="d-flex mb-4" onclick="navigateToLink('HOME')">
+         <div class="icon-home me-3"></div>
+         <span>
+           Home
+         </span>
+       </div>
+       <div class="d-flex mb-4" onclick="navigateToLink('CONTACT_US')">
+         <div class="icon-contact-us me-3"></div>
+         <span>
+           Contact Us
+         </span>
+       </div>
+       <div class="d-flex" onclick="navigateToLink('PRIVACY_POLICY')">
+         <div class="icon-prepaid-card me-3"></div>
+         <span>
+           Privacy Policy
+         </span>
+       </div>
+     </div>
+   </div>
+ </div>            </div>
+    </body>
+    </html>
